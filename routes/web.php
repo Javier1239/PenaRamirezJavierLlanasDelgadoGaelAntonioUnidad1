@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReservasController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,12 +58,18 @@ Route::controller(AuthController::class)->group(function(){
     Route::post('logout', 'logout')->middleware('auth')->name('logout');
 });
 
-//Normal Users Routes List
+// Rutas para la solicitud y el restablecimiento de contraseñas
+Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
+
+// Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
-//Admin Routes List
+// Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
     Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
@@ -83,7 +91,3 @@ Route::post('/rooms', [ComentariosController::class, 'create'])->name('comentari
 Route::get('/habitacion_estandar', [ComentariosController::class, 'mostrarComentarios'])->name('comentarios');
 Route::get('/habitacion_lujo', [ComentariosController::class, 'mostrarComentarios2'])->name('comentarios2');
 Route::get('/suite_familiar', [ComentariosController::class, 'mostrarComentarios3'])->name('comentarios3');
-
-
-
-
