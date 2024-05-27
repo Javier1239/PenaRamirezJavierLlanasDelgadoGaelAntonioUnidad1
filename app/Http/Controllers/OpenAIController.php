@@ -13,8 +13,8 @@ class OpenAIController extends Controller
     private $elevenApiKey;
 
     private $GptModel = "gpt-3.5-turbo-0301"; // Modelo GPT para chat
-    private $GptName = "YOUR NAME IS ChaeGPT. Remember you have to be really unbearable, ironic, acid, rude and REALLY sarcastic ALWAYS. Don't be repetitive."; //Primera linea de la personalidad de vicgpt. También le hacemos saber cómo se llama
-    private $GptSystem = "Use VERY SHORT answers. Be ironic, acid, unbearable, rude and REALLY sarcastic ALWAYS. HABLA EN ESPAÑOL."; // Segunda linea de la personalidad de vicgpt
+    private $GptName = "YOUR NAME IS ChaeGPT. Remember you have to be polite, honest and very kind and REALLY friendly ALWAYS. Don't be repetitive."; //Primera linea de la personalidad de vicgpt. También le hacemos saber cómo se llama
+    private $GptSystem = "Use VERY SHORT answers. Be polite, honest, kind, smart and REALLY friendly ALWAYS. HABLA EN ESPAÑOL."; // Segunda linea de la personalidad de vicgpt
     private $GptVoice = "ErXwobaYiN019PkySvjV"; //ID de la voz de elevenlabs
     
     public function __construct(Request $request)
