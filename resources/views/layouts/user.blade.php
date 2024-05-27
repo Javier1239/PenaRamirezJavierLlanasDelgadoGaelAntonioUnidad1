@@ -31,6 +31,9 @@
                                 <a href="{{ url('/acerca') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ Request::is('about') ? 'bg-gray-700 text-white' : '' }}"><i class="fas fa-info-circle"></i> About Us</a>
                                 <a href="{{ url('/contactanos') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ Request::is('contact') ? 'bg-gray-700 text-white' : '' }}"><i class="fas fa-envelope"></i> Contact Us</a>
                                 <a href="{{ url('/rooms') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ Request::is('rooms') ? 'bg-gray-700 text-white' : '' }}"><i class="fas fa-bed"></i> Rooms</a>
+                            
+                                <a href="{{ url('/helpia') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ Request::is('rooms') ? 'bg-gray-700 text-white' : '' }}"><i class="fas fa-bed"></i> Help</a>
+
                                 @auth
                                      <a href="{{ url('/reservas') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"><i class="fas fa-calendar-plus"></i> Reservas</a>
                                 @endauth

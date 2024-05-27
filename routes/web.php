@@ -20,6 +20,19 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+use App\Http\Controllers\OpenAIController;
+
+
+
+Route::get('/helpia', function () {
+    return view('helpia');
+});
+Route::post('open-ai', [OpenAIController::class, 'index']);
+
+
+
+
+
 
 Route::get('/', function () {
     return view('home');
